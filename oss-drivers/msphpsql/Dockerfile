@@ -1,6 +1,6 @@
 # mssql-php-msphpsql
 # PHP runtime with sqlservr and pdo_sqlsrv to connect to SQL Server
-FROM ubuntu:16.04
+FROM ubuntu:24.04
 MAINTAINER SQL Server Connectivity Team
 
 # apt-get and system utilities
@@ -10,7 +10,7 @@ RUN apt-get update && apt-get install -y \
 
 # adding custom MS repository
 RUN curl https://packages.microsoft.com/keys/microsoft.asc | apt-key add -
-RUN curl https://packages.microsoft.com/config/ubuntu/16.04/prod.list > /etc/apt/sources.list.d/mssql-release.list
+RUN curl https://packages.microsoft.com/config/ubuntu/24.04/prod.list > /etc/apt/sources.list.d/mssql-release.list
 
 # install SQL Server drivers
 RUN apt-get update && ACCEPT_EULA=Y apt-get install -y unixodbc-dev msodbcsql 
